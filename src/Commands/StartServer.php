@@ -9,8 +9,8 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
 use InvalidArgumentException;
+use PeibinLaravel\Contract\StdoutLoggerInterface;
 use PeibinLaravel\Server\ServerFactory;
-use PeibinLaravel\Utils\Contracts\StdoutLogger;
 use Swoole\Coroutine;
 
 class StartServer extends Command
@@ -48,7 +48,7 @@ class StartServer extends Command
     {
         $serverFactory = $this->container->get(ServerFactory::class)
             ->setEventDispatcher($this->container->get(Dispatcher::class))
-            ->setLogger($this->container->get(StdoutLogger::class));
+            ->setLogger($this->container->get(StdoutLoggerInterface::class));
 
         $serverConfig = $this->container->get(Repository::class)->get('server', []);
         if (!$serverConfig) {

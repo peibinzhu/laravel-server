@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
+use PeibinLaravel\Contract\StdoutLoggerInterface;
 use PeibinLaravel\Server\Handlers\AfterWorkerStart;
 use PeibinLaravel\Server\Handlers\BeforeWorkerStart;
 use PeibinLaravel\Server\Handlers\MainWorkerStart;
 use PeibinLaravel\Server\Handlers\OtherWorkerStart;
-use PeibinLaravel\Utils\Contracts\StdoutLogger;
 use Swoole\Server as SwooleServer;
 
 class WorkerStartCallback
 {
-    public function __construct(protected Dispatcher $dispatcher, protected StdoutLogger $logger)
+    public function __construct(protected Dispatcher $dispatcher, protected StdoutLoggerInterface $logger)
     {
     }
 
