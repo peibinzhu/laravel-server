@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Contract\StdoutLoggerInterface;
+use PeibinLaravel\Contracts\StdoutLoggerInterface;
 use PeibinLaravel\Server\Handlers\AfterWorkerStart;
 use PeibinLaravel\Server\Handlers\BeforeWorkerStart;
 use PeibinLaravel\Server\Handlers\MainWorkerStart;

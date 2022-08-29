@@ -9,7 +9,7 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
 use InvalidArgumentException;
-use PeibinLaravel\Contract\StdoutLoggerInterface;
+use PeibinLaravel\Contracts\StdoutLoggerInterface;
 use PeibinLaravel\Server\ServerFactory;
 use Swoole\Coroutine;
 
