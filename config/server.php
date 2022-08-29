@@ -32,9 +32,9 @@ return [
         'socket_buffer_size'  => 2 * 1024 * 1024,
     ],
     'callbacks' => [
-        Event::ON_BEFORE_START => [PeibinLaravel\Server\Bootstraps\ServerStartCallback::class, 'beforeStart'],
-        Event::ON_WORKER_START => [PeibinLaravel\Server\Bootstraps\WorkerStartCallback::class, 'onWorkerStart'],
-        Event::ON_PIPE_MESSAGE => [PeibinLaravel\Server\Bootstraps\PipeMessageCallback::class, 'onPipeMessage'],
-        Event::ON_WORKER_EXIT  => [PeibinLaravel\Server\Bootstraps\WorkerExitCallback::class, 'onWorkerExit'],
+        Event::ON_BEFORE_START => [PeibinLaravel\SwooleEvent\Bootstraps\ServerStartCallback::class, 'beforeStart'],
+        Event::ON_WORKER_START => [PeibinLaravel\SwooleEvent\Bootstraps\WorkerStartCallback::class, 'onWorkerStart'],
+        Event::ON_PIPE_MESSAGE => [PeibinLaravel\SwooleEvent\Bootstraps\PipeMessageCallback::class, 'onPipeMessage'],
+        Event::ON_WORKER_EXIT  => [PeibinLaravel\SwooleEvent\Bootstraps\WorkerExitCallback::class, 'onWorkerExit'],
     ],
 ];

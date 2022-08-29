@@ -6,9 +6,9 @@ namespace PeibinLaravel\Server\Listeners;
 
 use Illuminate\Contracts\Config\Repository;
 use PeibinLaravel\Process\Events\BeforeProcessHandle;
-use PeibinLaravel\Server\Events\AfterWorkerStart;
-use PeibinLaravel\Server\Events\OnManagerStart;
-use PeibinLaravel\Server\Events\OnStart;
+use PeibinLaravel\SwooleEvent\Events\AfterWorkerStart;
+use PeibinLaravel\SwooleEvent\Events\OnManagerStart;
+use PeibinLaravel\SwooleEvent\Events\OnStart;
 
 class InitProcessTitleListener
 {

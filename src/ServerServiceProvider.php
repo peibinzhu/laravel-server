@@ -7,11 +7,11 @@ namespace PeibinLaravel\Server;
 use Illuminate\Support\ServiceProvider;
 use PeibinLaravel\Process\Events\BeforeProcessHandle;
 use PeibinLaravel\Server\Commands\StartServer;
-use PeibinLaravel\Server\Events\AfterWorkerStart;
-use PeibinLaravel\Server\Events\OnManagerStart;
-use PeibinLaravel\Server\Events\OnStart;
 use PeibinLaravel\Server\Listeners\AfterWorkerStartListener;
 use PeibinLaravel\Server\Listeners\InitProcessTitleListener;
+use PeibinLaravel\SwooleEvent\Events\AfterWorkerStart;
+use PeibinLaravel\SwooleEvent\Events\OnManagerStart;
+use PeibinLaravel\SwooleEvent\Events\OnStart;
 use PeibinLaravel\Utils\Providers\RegisterProviderConfig;
 use Swoole\Server as SwooleServer;
 

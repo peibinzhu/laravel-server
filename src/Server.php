@@ -9,8 +9,13 @@ use Illuminate\Contracts\Events\Dispatcher;
 use PeibinLaravel\Server\Contracts\MiddlewareInitializerInterface;
 use PeibinLaravel\Server\Contracts\ServerInterface;
 use PeibinLaravel\Server\Exceptions\RuntimeException;
-use PeibinLaravel\Server\Events\BeforeMainServerStart;
-use PeibinLaravel\Server\Events\BeforeServerStart;
+use PeibinLaravel\SwooleEvent\Bootstraps\ManagerStartCallback;
+use PeibinLaravel\SwooleEvent\Bootstraps\StartCallback;
+use PeibinLaravel\SwooleEvent\Bootstraps\WorkerExitCallback;
+use PeibinLaravel\SwooleEvent\Bootstraps\WorkerStartCallback;
+use PeibinLaravel\SwooleEvent\Bootstraps\WorkerStopCallback;
+use PeibinLaravel\SwooleEvent\Events\BeforeMainServerStart;
+use PeibinLaravel\SwooleEvent\Events\BeforeServerStart;
 use Psr\Log\LoggerInterface;
 use Swoole\Http\Server as SwooleHttpServer;
 use Swoole\Server as SwooleServer;
@@ -181,23 +186,23 @@ class Server implements ServerInterface
 
     protected function defaultCallbacks(): array
     {
-        $hasCallback = class_exists(Bootstraps\StartCallback::class)
-            && class_exists(Bootstraps\ManagerStartCallback::class)
-            && class_exists(Bootstraps\WorkerStartCallback::class);
+        $hasCallback = class_exists(StartCallback::class)
+            && class_exists(ManagerStartCallback::class)
+            && class_exists(WorkerStartCallback::class);
 
         if ($hasCallback) {
             $callbacks = [
-                Event::ON_MANAGER_START => [Bootstraps\ManagerStartCallback::class, 'onManagerStart'],
-                Event::ON_WORKER_START  => [Bootstraps\WorkerStartCallback::class, 'onWorkerStart'],
-                Event::ON_WORKER_STOP   => [Bootstraps\WorkerStopCallback::class, 'onWorkerStop'],
-                Event::ON_WORKER_EXIT   => [Bootstraps\WorkerExitCallback::class, 'onWorkerExit'],
+                Event::ON_MANAGER_START => [ManagerStartCallback::class, 'onManagerStart'],
+                Event::ON_WORKER_START  => [WorkerStartCallback::class, 'onWorkerStart'],
+                Event::ON_WORKER_STOP   => [WorkerStopCallback::class, 'onWorkerStop'],
+                Event::ON_WORKER_EXIT   => [WorkerExitCallback::class, 'onWorkerExit'],
             ];
             if ($this->server->mode === SWOOLE_BASE) {
                 return $callbacks;
             }
 
             return array_merge([
-                Event::ON_START => [Bootstraps\StartCallback::class, 'onStart'],
+                Event::ON_START => [StartCallback::class, 'onStart'],
             ], $callbacks);
         }
 
