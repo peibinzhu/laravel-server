@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnWorkerStop;
+use PeibinLaravel\Server\Events\OnWorkerStop;
 use Swoole\Server;
 
 class WorkerStopCallback

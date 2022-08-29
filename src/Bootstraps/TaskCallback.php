@@ -6,7 +6,7 @@ namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnTask;
+use PeibinLaravel\Server\Events\OnTask;
 use Swoole\Server;
 use Swoole\Server\Task;
 

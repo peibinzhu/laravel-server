@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PeibinLaravel\Server\Listeners;
 
+use Illuminate\Contracts\Container\Container;
 use PeibinLaravel\Server\Contracts\ServerInterface;
-use PeibinLaravel\Server\Handlers\AfterWorkerStart;
+use PeibinLaravel\Server\Events\AfterWorkerStart;
 use PeibinLaravel\Server\ServerManager;
 use PeibinLaravel\Utils\StdoutLogger;
 use Swoole\Coroutine\Server;
@@ -14,9 +15,9 @@ class AfterWorkerStartListener
 {
     protected StdoutLogger $logger;
 
-    public function __construct()
+    public function __construct(Container $container)
     {
-        $this->logger = new StdoutLogger();
+        $this->logger = $container->make(StdoutLogger::class);
     }
 
     public function handle(object $event): void

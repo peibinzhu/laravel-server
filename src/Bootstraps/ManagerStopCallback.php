@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnManagerStop;
+use PeibinLaravel\Server\Events\OnManagerStop;
 use Swoole\Server as SwooleServer;
 
 class ManagerStopCallback

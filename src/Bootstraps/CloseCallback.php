@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnClose;
+use PeibinLaravel\Server\Events\OnClose;
 use Swoole\Server;
 
 class CloseCallback

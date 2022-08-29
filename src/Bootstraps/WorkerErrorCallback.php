@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnWorkerError;
+use PeibinLaravel\Server\Events\OnWorkerError;
 use Swoole\Server;
 
 class WorkerErrorCallback

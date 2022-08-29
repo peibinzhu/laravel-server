@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnWorkerExit;
+use PeibinLaravel\Server\Events\OnWorkerExit;
 use Swoole\Server;
 
 class WorkerExitCallback

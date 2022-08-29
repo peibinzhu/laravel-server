@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnPipeMessage;
+use PeibinLaravel\Server\Events\OnPipeMessage;
 use Swoole\Server as SwooleServer;
 
 class PipeMessageCallback

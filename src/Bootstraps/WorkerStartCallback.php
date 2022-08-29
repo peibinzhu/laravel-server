@@ -6,10 +6,10 @@ namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use PeibinLaravel\Contracts\StdoutLoggerInterface;
-use PeibinLaravel\Server\Handlers\AfterWorkerStart;
-use PeibinLaravel\Server\Handlers\BeforeWorkerStart;
-use PeibinLaravel\Server\Handlers\MainWorkerStart;
-use PeibinLaravel\Server\Handlers\OtherWorkerStart;
+use PeibinLaravel\Server\Events\AfterWorkerStart;
+use PeibinLaravel\Server\Events\BeforeWorkerStart;
+use PeibinLaravel\Server\Events\MainWorkerStart;
+use PeibinLaravel\Server\Events\OtherWorkerStart;
 use Swoole\Server as SwooleServer;
 
 class WorkerStartCallback

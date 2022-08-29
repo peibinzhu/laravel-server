@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PeibinLaravel\Server\Handlers;
+namespace PeibinLaravel\Server\Events;
 
 use Swoole\Server;
 
-class OnManagerStart
+class OnStart
 {
     public function __construct(public Server $server)
     {

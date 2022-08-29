@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PeibinLaravel\Server\Bootstraps;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use PeibinLaravel\Server\Handlers\OnStart;
+use PeibinLaravel\Server\Events\OnStart;
 use Swoole\Server as SwooleServer;
 
 class StartCallback
