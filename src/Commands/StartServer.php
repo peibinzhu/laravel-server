@@ -10,8 +10,8 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
 use InvalidArgumentException;
 use PeibinLaravel\Contracts\StdoutLoggerInterface;
+use PeibinLaravel\Engine\Coroutine;
 use PeibinLaravel\Server\ServerFactory;
-use Swoole\Coroutine;
 
 class StartServer extends Command
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PeibinLaravel\Server;
 
-use PeibinLaravel\Utils\Traits\Container;
+use PeibinLaravel\Coroutine\Traits\Container;
 
 class ServerManager
 {
